@@ -24,6 +24,7 @@ export default new Vuex.Store({
           alertify
             .alert('You have successfully logged in', function () {
               alertify.message('You are now logged in')
+              window.location.reload()
             })
           // router.push({name: 'mainpage'})
         })

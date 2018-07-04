@@ -11,22 +11,26 @@
             <a class="nav-link" href="#">Balance Rp. 10.000,00 <span class="sr-only">(current)</span></a>
           </li>
         </ul>
-        <button class="btn btn-success" @click="doLogOut">
-          <img src="@/assets/glyphicons-203-shopping-cart.png" >
-          CART
-        </button>
-        <button class="btn btn-info" data-toggle="modal" data-target="#loginModal" >
-          <img src="@/assets/glyphicons-387-log-in.png" alt="">
-          LOG IN
-        </button>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#registerModal" >
-          <img src="@/assets/glyphicons-7-user-add.png" alt="">
-          REGISTER
-        </button>
-        <button class="btn btn-danger" @click="doLogOut">
-          <img src="@/assets/glyphicons-388-log-out.png" alt="">
-          LOG OUT
-        </button>
+        <div v-if="userId">
+          <button class="btn btn-success" @click="doLogOut">
+            <img src="@/assets/glyphicons-203-shopping-cart.png" >
+            CART
+          </button>
+          <button class="btn btn-danger" @click="doLogOut">
+            <img src="@/assets/glyphicons-388-log-out.png" alt="">
+            LOG OUT
+          </button>
+        </div>
+        <div v-else>
+          <button class="btn btn-info" data-toggle="modal" data-target="#loginModal" >
+            <img src="@/assets/glyphicons-387-log-in.png" alt="">
+            LOG IN
+          </button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#registerModal" >
+            <img src="@/assets/glyphicons-7-user-add.png" alt="">
+            REGISTER
+          </button>
+        </div>
         <form class="form-inline mt-2 mt-md-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -37,6 +41,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'navbar',
   data () {
@@ -44,8 +49,16 @@ export default {
 
     }
   },
+  computed: {
+    ...mapState([
+      'userId'
+    ])
+  },
   methods: {
-  
+    doLogOut () {
+      localStorage.removeItem('userId')
+      window.location.reload()
+    }
   }
 }
 </script>
