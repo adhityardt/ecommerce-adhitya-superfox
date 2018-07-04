@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { user, db } from './firebase.js'
+import { user, db, storageRef } from './firebase.js'
 import alertify from 'alertifyjs'
 // import router from './router'
 
@@ -55,6 +55,28 @@ export default new Vuex.Store({
               alertify.message('Please check or re-enter your email and password')
             })
           console.log(err)
+        })
+    },
+    addItemDb ({commit, state}, payload) {
+      let date = Number(new Date()).toString()
+      storageRef.ref(date).put(payload.image)
+        .then(response => {
+          storageRef.ref(date).getDownloadURL()
+            .then(urlResponse => {
+              db.ref('/Items/').push({
+                itemName: payload.itemName,
+                stock: payload.stock,
+                price: payload.price,
+                description: payload.description,
+                url: urlResponse
+              })
+            })
+            .catch(err => {
+              console.log(err)
+            })
+        })
+        .catch(error => {
+          console.log(error)
         })
     }
   }

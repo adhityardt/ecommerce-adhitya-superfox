@@ -13,7 +13,7 @@
               <input type="file" class="form-control" @change="postImageHandler">
             </div>
             <div class="form-group">
-              <label>Item name:</label>
+              <label>Item Name:</label>
               <input type="text" class="form-control" v-model="itemName">
             </div>
             <div class="form-group">
@@ -21,14 +21,14 @@
               <input type="text" class="form-control" v-model="stock">
             </div>
             <div class="form-group">
-              <label>Price per Item:</label>
+              <label>Price per-Item:</label>
               <input type="text" class="form-control" v-model="price">
             </div>
             <div class="form-group">
-              <label>Description:</label>
+              <label>Item Description:</label>
               <textarea class="form-control" rows="4" cols="50" v-model="description"></textarea>
             </div>
-            <button type="submit" class="btn btn-warning" @click="postImage" data-dismiss="modal">POST</button>
+            <button type="submit" class="btn btn-warning" @click="postItem" data-dismiss="modal">POST</button>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -40,8 +40,36 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
-  name: 'additemmodal'
+  name: 'additemmodal',
+  data () {
+    return {
+      image: '',
+      itemName: '',
+      stock: 0,
+      price: 0,
+      description: ''
+    }
+  },
+  methods: {
+    postImageHandler: function (event) {
+      this.image = event.target.files[0]
+    },
+    postItem () {
+      let payload = {
+        image: this.image,
+        itemName: this.itemName,
+        stock: this.stock,
+        price: this.price,
+        description: this.description
+      }
+      this.addItemDb(payload)
+    },
+    ...mapActions ([
+      'addItemDb'
+    ])
+  }
 }
 </script>
 
