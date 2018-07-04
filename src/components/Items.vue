@@ -2,7 +2,7 @@
   <div id="items">
     <div v-for="item of items" :key="item['.key']">
       <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="@/assets/logo.png" alt="Card image cap">
+        <img class="card-img-top" :src="item.url" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{item.itemName}}</h5>
           <p class="card-text">{{item.description}}</p>
@@ -11,11 +11,11 @@
             <li class="list-group-item">Stock Remaining : {{item.stock}}</li>
             <div v-if="userId == 'e3DScum3mhe1WZyTa0v8AVvuHeM2'">
               <li class="list-group-item" v-if="userId ">
-                <button data-toggle="modal" data-target="#updateAnswerModal" class="btn btn-warning" @click="editAnswer(answer.key)"  >
+                <button data-toggle="modal" data-target="#editItemModal" class="btn btn-warning" @click="editItem(item['.key'],item.itemName,item.stock,item.price,item.description)"  >
                   <img src="@/assets/glyphicons-151-edit.png" >  
                   Edit Item
                 </button>
-                <button class="btn btn-danger" @click="deleteAnswer(answer.key)"  >
+                <button class="btn btn-danger" @click="deleteItem(item['.key'])"  >
                   <img src="@/assets/glyphicons-257-delete.png" >  
                   Delete Item
                 </button>
@@ -34,7 +34,7 @@
 
 <script>
 import {db} from '../firebase'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'items',
   firebase: {
@@ -43,6 +43,29 @@ export default {
   computed: {
     ...mapState([
       'userId'
+    ])
+  },
+  methods: {
+    editItem (itemKey,itemName,stock,price,description) {
+      localStorage.setItem('editItemKey', itemKey)
+      localStorage.setItem('itemName', itemName)
+      localStorage.setItem('stock', stock)
+      localStorage.setItem('price', price)
+      localStorage.setItem('description', description)
+      let payload = {
+        itemName: itemName,
+        stock: stock,
+        price: price,
+        description: description
+      }
+      this.setItemState(payload)
+    },
+    deleteItem(itemKey) {
+      this.removeItem(itemKey)
+    },
+    ...mapActions([
+      'setItemState',
+      'removeItem'
     ])
   }
 }

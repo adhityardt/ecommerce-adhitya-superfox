@@ -8,7 +8,7 @@
     <RegisterModal/>
     <LoginModal/>
     <AddItemModal/>
-
+    <EditItemModal/>
   </div>
 </template>
 
@@ -19,6 +19,7 @@ import Items from '@/components/Items.vue'
 import RegisterModal from '@/components/RegisterModal.vue'
 import LoginModal from '@/components/LoginModal.vue'
 import AddItemModal from '@/components/AddItemModal.vue'
+import EditItemModal from '@/components/EditItemModal.vue'
 export default {
   name: 'mainpage',
   components: {
@@ -27,7 +28,8 @@ export default {
     Items,
     RegisterModal,
     LoginModal,
-    AddItemModal
+    AddItemModal,
+    EditItemModal
   }
 }
 </script>

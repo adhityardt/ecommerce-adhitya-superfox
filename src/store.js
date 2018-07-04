@@ -8,11 +8,22 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    userId: localStorage.getItem('userId')
+    userId: localStorage.getItem('userId'),
+    image: '',
+    itemName: '',
+    stock: 0,
+    price: 0,
+    description: ''
   },
   mutations: {
     setUserId (state, payload) {
       state.userId = payload
+    },
+    setItemState (state, payload) {
+      state.itemName = payload.itemName
+      state.stock = payload.stock
+      state.price = payload.price
+      state.description = payload.description
     }
   },
   actions: {
@@ -77,6 +88,27 @@ export default new Vuex.Store({
         })
         .catch(error => {
           console.log(error)
+        })
+    },
+    editItemDb ({commit}, payload) {
+      db.ref('/Items/' + localStorage.getItem('editItemKey')).update({
+        itemName: payload.itemName,
+        stock: payload.stock,
+        price: payload.price,
+        description: payload.description
+      })
+    },
+    setItemState ({commit}, payload) {
+      commit('setItemState', payload)
+    },
+    removeItem ({commit}, payload) {
+      alertify.confirm('Are you sure?',
+        function () {
+          alertify.success('Answer successfully deleted')
+          db.ref('/Items').child(payload).remove()
+        },
+        function () {
+          alertify.error('Cancel')
         })
     }
   }
