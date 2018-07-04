@@ -18,7 +18,7 @@
             <img src="@/assets/glyphicons-433-plus.png" >
             Add an Item
           </button>  
-          <button class="btn btn-success" @click="doLogOut">
+          <button class="btn btn-success" data-toggle="modal" data-target="#cartModal">
             <img src="@/assets/glyphicons-203-shopping-cart.png" >
             CART
           </button>

@@ -8,24 +8,24 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="@/assets/download.jpeg" alt="First slide">
+          <img class="d-block w-100" src="@/assets/25percentoff.png" alt="First slide" style="height: 700px;">
           <div class="carousel-caption d-none d-md-block">
-            <h5>First Slide</h5>
-            <p>Ayo kamu bisa</p>
+            <h5>25 Percent Off</h5>
+            <p>Only on ecommerce</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="@/assets/download.jpeg" alt="Second slide">
+          <img class="d-block w-100" src="@/assets/freeshipping.png" alt="Second slide" style="height: 700px;">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Second Slide</h5>
-            <p>Ayo kamu pasti bisa</p>
+            <h5>Free Shipping</h5>
+            <p>Go buy now!!</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="@/assets/download.jpeg" alt="Third slide">
+          <img class="d-block w-100" src="@/assets/buyone.jpeg" alt="Third slide" style="height: 700px;">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Third Slide</h5>
-            <p>Bisa bisa bisa</p>
+            <h5>Buy 1 Get 1 Free</h5>
+            <p>Buy one get one for your love one</p>
           </div>
         </div>
       </div>

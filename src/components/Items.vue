@@ -22,7 +22,7 @@
               </li>
             </div>
           </ul>
-          <button class="btn btn-primary" style="margin-top:10px;">
+          <button v-if="userId" class="btn btn-primary" style="margin-top:10px;" @click="addToCart(item['.key'], item.itemName, item.price)">
             <img src="@/assets/glyphicons-209-cart-in.png" >
             Add To Cart
           </button>
@@ -63,9 +63,21 @@ export default {
     deleteItem(itemKey) {
       this.removeItem(itemKey)
     },
+    addToCart (itemKey, itemName, price) {
+      // console.log(itemKey, itemName, price)
+      let payload = {
+        itemKey: itemKey,
+        itemName: itemName,
+        price: price
+      }
+      this.addToCartDb (payload)
+      this.decrementStock (itemKey)
+    },
     ...mapActions([
       'setItemState',
-      'removeItem'
+      'removeItem',
+      'addToCartDb',
+      'decrementStock'
     ])
   }
 }

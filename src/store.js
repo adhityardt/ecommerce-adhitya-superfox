@@ -110,6 +110,31 @@ export default new Vuex.Store({
         function () {
           alertify.error('Cancel')
         })
+    },
+    addToCartDb ({commit}, payload) {
+      db.ref('/Carts/' + localStorage.getItem('userId')).child(payload.itemKey).set({
+        itemName: payload.itemName,
+        total: 1,
+        price: payload.price
+      })
+      // .then(response => {
+      //   db.ref('/Carts/' + localStorage.getItem('userId')).child(payload.itemKey).child('total').transaction(function (currentValue) {
+      //     return (currentValue || 0) + 1
+      //   })
+      // })
+      // .catch(error => {
+      //   console.log(error)
+      // })
+    },
+    decrementStock ({commit}, payload) {
+      db.ref('/Items/' + payload).child('stock').transaction(function (currentValue) {
+        return (currentValue || 0) - 1
+      })
+    },
+    incrementStock ({commit}, payload) {
+      db.ref('/Items/' + payload).child('stock').transaction(function (currentValue) {
+        return (currentValue || 0) + 1
+      })
     }
   }
 })
