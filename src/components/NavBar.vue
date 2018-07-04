@@ -7,11 +7,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Balance Rp. {{usersDb.filter(function(el){return el['.key'] == userId})[0].balance}} <span class="sr-only">(current)</span></a>
-          </li>
+          <div v-if="userId">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Balance Rp. {{usersDb.filter(function(el){return el['.key'] == userId})[0].balance}} <span class="sr-only">(current)</span></a>
+            </li>
+          </div>
         </ul>
         <div v-if="userId">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#itemModal" v-if="userId == 'e3DScum3mhe1WZyTa0v8AVvuHeM2'">
+            <img src="@/assets/glyphicons-433-plus.png" >
+            Add an Item
+          </button>  
           <button class="btn btn-success" @click="doLogOut">
             <img src="@/assets/glyphicons-203-shopping-cart.png" >
             CART

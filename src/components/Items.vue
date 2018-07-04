@@ -8,7 +8,7 @@
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Stock Remaining : </li>
-            <div v-if="userId == 'e3DScum3mhe1WZyTa0v8AVvuHeM2' ">
+            <div v-if="userId == 'e3DScum3mhe1WZyTa0v8AVvuHeM2'">
               <li class="list-group-item" v-if="userId ">
                 <button data-toggle="modal" data-target="#updateAnswerModal" class="btn btn-warning" @click="editAnswer(answer.key)"  >
                   <img src="@/assets/glyphicons-151-edit.png" >  
