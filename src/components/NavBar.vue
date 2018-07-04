@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Balance Rp. 10.000,00 <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Balance Rp. {{usersDb.filter(function(el){return el['.key'] == userId})[0].balance}} <span class="sr-only">(current)</span></a>
           </li>
         </ul>
         <div v-if="userId">
@@ -41,18 +41,21 @@
 </template>
 
 <script>
+import { db } from '../firebase.js'
 import { mapState } from 'vuex'
 export default {
   name: 'navbar',
   data () {
     return {
-
     }
   },
   computed: {
     ...mapState([
       'userId'
     ])
+  },
+  firebase:{
+    usersDb: db.ref('/Users')
   },
   methods: {
     doLogOut () {

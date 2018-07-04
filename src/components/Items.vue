@@ -8,16 +8,18 @@
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Stock Remaining : </li>
-            <li class="list-group-item">
-              <button data-toggle="modal" data-target="#updateAnswerModal" class="btn btn-warning" @click="editAnswer(answer.key)"  >
-                <img src="@/assets/glyphicons-151-edit.png" >  
-                Edit Item
-              </button>
-              <button class="btn btn-danger" @click="deleteAnswer(answer.key)"  >
-                <img src="@/assets/glyphicons-257-delete.png" >  
-                Delete Item
-              </button>
-            </li>
+            <div v-if="userId == 'e3DScum3mhe1WZyTa0v8AVvuHeM2' ">
+              <li class="list-group-item" v-if="userId ">
+                <button data-toggle="modal" data-target="#updateAnswerModal" class="btn btn-warning" @click="editAnswer(answer.key)"  >
+                  <img src="@/assets/glyphicons-151-edit.png" >  
+                  Edit Item
+                </button>
+                <button class="btn btn-danger" @click="deleteAnswer(answer.key)"  >
+                  <img src="@/assets/glyphicons-257-delete.png" >  
+                  Delete Item
+                </button>
+              </li>
+            </div>
           </ul>
           <button class="btn btn-primary" style="margin-top:10px;">
             <img src="@/assets/glyphicons-209-cart-in.png" >
@@ -78,8 +80,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'items'
+  name: 'items',
+  computed: {
+    ...mapState([
+      'userId'
+    ])
+  }
 }
 </script>
 
