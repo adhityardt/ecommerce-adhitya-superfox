@@ -15,11 +15,11 @@
           <img src="@/assets/glyphicons-203-shopping-cart.png" >
           CART
         </button>
-        <button class="btn btn-info" @click="doLogOut">
+        <button class="btn btn-info" data-toggle="modal" data-target="#loginModal" >
           <img src="@/assets/glyphicons-387-log-in.png" alt="">
           LOG IN
         </button>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#registerModal" @click="doLogOut">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#registerModal" >
           <img src="@/assets/glyphicons-7-user-add.png" alt="">
           REGISTER
         </button>

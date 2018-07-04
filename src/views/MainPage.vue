@@ -6,6 +6,7 @@
     <div class="content">
     </div>
     <RegisterModal/>
+    <LoginModal/>
   </div>
 </template>
 
@@ -14,13 +15,15 @@ import NavBar from '@/components/NavBar.vue'
 import Carousel from '@/components/Carousel.vue'
 import Items from '@/components/Items.vue'
 import RegisterModal from '@/components/RegisterModal.vue'
+import LoginModal from '@/components/LoginModal.vue'
 export default {
   name: 'mainpage',
   components: {
     NavBar,
     Carousel,
     Items,
-    RegisterModal
+    RegisterModal,
+    LoginModal
   }
 }
 </script>

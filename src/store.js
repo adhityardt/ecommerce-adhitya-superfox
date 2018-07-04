@@ -2,16 +2,18 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { user, db } from './firebase.js'
 import alertify from 'alertifyjs'
-import router from './router'
+// import router from './router'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-
+    userId: localStorage.getItem('userId')
   },
   mutations: {
-
+    setUserId (state, payload) {
+      state.userId = payload
+    }
   },
   actions: {
     logIn ({ commit }, payload) {
@@ -19,12 +21,11 @@ export default new Vuex.Store({
         .then(response => {
           localStorage.setItem('userId', response.user.uid)
           commit('setUserId', response.user.uid)
-          console.log(response.user)
           alertify
             .alert('You have successfully logged in', function () {
               alertify.message('You are now logged in')
             })
-          router.push({name: 'mainpage'})
+          // router.push({name: 'mainpage'})
         })
         .catch(error => {
           alertify
