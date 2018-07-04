@@ -16,13 +16,16 @@
           CART
         </button>
         <button class="btn btn-info" @click="doLogOut">
-          <img src="@/assets/glyphicons-387-log-in.png" alt="">LOG IN
+          <img src="@/assets/glyphicons-387-log-in.png" alt="">
+          LOG IN
         </button>
-        <button class="btn btn-primary" @click="doLogOut">
-          <img src="@/assets/glyphicons-7-user-add.png" alt="">REGISTER
+        <button class="btn btn-primary" data-toggle="modal" data-target="#registerModal" @click="doLogOut">
+          <img src="@/assets/glyphicons-7-user-add.png" alt="">
+          REGISTER
         </button>
         <button class="btn btn-danger" @click="doLogOut">
-          <img src="@/assets/glyphicons-388-log-out.png" alt="">LOG OUT
+          <img src="@/assets/glyphicons-388-log-out.png" alt="">
+          LOG OUT
         </button>
         <form class="form-inline mt-2 mt-md-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">

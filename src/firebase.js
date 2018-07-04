@@ -11,7 +11,5 @@ const firebaseApp = initializeApp({
 
 export const db = firebaseApp.database()
 export const user = firebaseApp.auth()
-export const regUser = db.ref('Users')
-export const regPic = db.ref('Pictures')
 export const storageRef = firebaseApp.storage()
 // export const storageRef = firebaseApp.storage().ref(Number(new Date()).toString())
