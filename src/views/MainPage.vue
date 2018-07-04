@@ -7,6 +7,8 @@
     </div>
     <RegisterModal/>
     <LoginModal/>
+    <AddItemModal/>
+
   </div>
 </template>
 
@@ -16,6 +18,7 @@ import Carousel from '@/components/Carousel.vue'
 import Items from '@/components/Items.vue'
 import RegisterModal from '@/components/RegisterModal.vue'
 import LoginModal from '@/components/LoginModal.vue'
+import AddItemModal from '@/components/AddItemModal.vue'
 export default {
   name: 'mainpage',
   components: {
@@ -23,7 +26,8 @@ export default {
     Carousel,
     Items,
     RegisterModal,
-    LoginModal
+    LoginModal,
+    AddItemModal
   }
 }
 </script>

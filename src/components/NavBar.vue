@@ -14,7 +14,7 @@
           </div>
         </ul>
         <div v-if="userId">
-          <button class="btn btn-primary" data-toggle="modal" data-target="#itemModal" v-if="userId == 'e3DScum3mhe1WZyTa0v8AVvuHeM2'">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#addItemModal" v-if="userId == 'e3DScum3mhe1WZyTa0v8AVvuHeM2'">
             <img src="@/assets/glyphicons-433-plus.png" >
             Add an Item
           </button>  
