@@ -1,5 +1,5 @@
 # ecommerce-adhitya-superfox
-https://mobil-murah-dotcom.firebaseapp.com
+ecommerce.adhityardt.ml
 
 use admin account to edit or delete item
 email : hactiv8@gmail.com
