@@ -1,12 +1,12 @@
 import { initializeApp } from 'firebase'
 
 const firebaseApp = initializeApp({
-  apiKey: 'AIzaSyCtx97sWO4uaGWxkjBbTdt6y1TmOE0XoZ0',
-  authDomain: 'mobil-murah-dotcom.firebaseapp.com',
-  databaseURL: 'https://mobil-murah-dotcom.firebaseio.com',
-  projectId: 'mobil-murah-dotcom',
-  storageBucket: 'mobil-murah-dotcom.appspot.com',
-  messagingSenderId: '287758272054'
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: ''
 })
 
 export const db = firebaseApp.database()
